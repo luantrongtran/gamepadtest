@@ -7,6 +7,7 @@
  * You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
  */
 let url = 'http://localhost:8070/manual-control';
+// let url = 'http://192.168.1.136:9090/manual-control';
 
 const COMMAND_TYPE = {
     NAVIGATION: "NAVIGATION",
@@ -166,6 +167,7 @@ function post(x, y, z, r, commandType) {
                 "vehicle": {
                     "data": {
                         "id": "6ed26ba8-1901-4bb4-981b-21b2c782b7fc",
+                        // "id": "luant-drone",
                         "type": "vehicles"
                     }
                 }
