@@ -6,8 +6,8 @@
  *
  * You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
  */
-let url = 'http://localhost:8070/manual-control';
-// let url = 'http://192.168.1.136:9090/manual-control';
+// let url = 'http://localhost:9090/manual-control';
+let url = 'http://192.168.1.184:8082/manual-control';
 
 const COMMAND_TYPE = {
     NAVIGATION: "NAVIGATION",
@@ -166,8 +166,8 @@ function post(x, y, z, r, commandType) {
             "relationships": {
                 "vehicle": {
                     "data": {
-                        "id": "6ed26ba8-1901-4bb4-981b-21b2c782b7fc",
                         // "id": "luant-drone",
+                        "id": "0e2d90ea3d709f8669215704b27b92cbff8b856804b2a19a881bd4f575666f2e",
                         "type": "vehicles"
                     }
                 }
@@ -190,4 +190,43 @@ function post(x, y, z, r, commandType) {
         // console.log("Request complete! response:", res);
     });
 
+
+
+
+    // let jBody1 = {
+    //     "data": {
+    //         "type": "manual-control",
+    //         "attributes": {
+    //             "xAxis": x,
+    //             "yAxis": y,
+    //             "zAxis": z,
+    //             "rAxis": r,
+    //             "commandType": commandType
+    //         },
+    //         "relationships": {
+    //             "vehicle": {
+    //                 "data": {
+    //                     // "id": "luant-drone",
+    //                     "id": "0e2d90ea3d709f8669215704b27b92cbff8b856804b2a19a881bd4f575666f2e",
+    //                     "type": "vehicles"
+    //                 }
+    //             }
+    //         }
+    //     }
+    // };
+
+    // xmlhttp.send(JSON.stringify(jBody));
+
+    // fetch(url, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/vnd.api+json",
+    //         "Access-Control-Allow-Origin": "*",
+    //         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
+    //         ,'Accept': 'application/vnd.api+json'
+    //     }
+    //     ,body: JSON.stringify(jBody1)
+    // }).then(res => {
+    //     // console.log("Request complete! response:", res);
+    // });
 }
