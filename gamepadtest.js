@@ -6,9 +6,23 @@
  *
  * You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
  */
-// let url = 'http://localhost:9090/manual-control';
+let url = 'http://localhost:9090/manual-control';
 // let url = 'http://192.168.1.136:9090/manual-control';
-let url = 'http://192.168.1.184:8082/manual-control';
+// let url = 'http://192.168.1.184:8082/manual-control';
+
+let selectedDrone = "luant-drone";
+
+function serverChanged() {
+    const element = document.getElementById("server-selector");
+    url = element.value;
+    console.log(element.innerText + " selected [" + element.value + "]");
+}
+
+function droneChanged() {
+    const element = document.getElementById("drone-selector");
+    selectedDrone = element.value;
+    console.log(element.innerText + " selected - id: " + selectedDrone);
+}
 
 const COMMAND_TYPE = {
     NAVIGATION: "NAVIGATION",
@@ -32,6 +46,7 @@ function connecthandler(e) {
 }
 
 function addgamepad(gamepad) {
+    console.log(gamepad);
     controllers[gamepad.index] = gamepad;
     var d = document.createElement("div");
     d.setAttribute("id", "controller" + gamepad.index);
@@ -168,7 +183,8 @@ function post(x, y, z, r, commandType) {
                 "vehicle": {
                     "data": {
                         // "id": "6ed26ba8-1901-4bb4-981b-21b2c782b7fc",
-                        "id": "luant-drone",
+                        "id": selectedDrone,
+                        // "id": "luant-drone",
                         "type": "vehicles"
                     }
                 }
